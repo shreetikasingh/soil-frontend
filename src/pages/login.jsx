@@ -92,7 +92,7 @@ const Login = ({ navigateTo, showToast }) => {
             <p className="text-slate-600">
               {isLoginMode ? "Don't have an account?" : "Already have an account?"}
               <button 
-                onClick={toggleAuthMode} 
+                onClick={toggleLoginMode} 
                 className="text-emerald-600 font-semibold hover:underline ml-1"
               >
                 {isLoginMode ? 'Sign up' : 'Login'}

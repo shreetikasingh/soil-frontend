@@ -37,7 +37,7 @@ const Navbar = ({ navigateTo, currentPage }) => {
               About
             </button>
             <button 
-              onClick={() => navigateTo('auth')} 
+              onClick={() => navigateTo('Login')} 
               className="px-4 py-2 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 transition font-medium"
             >
               Login
@@ -76,7 +76,7 @@ const Navbar = ({ navigateTo, currentPage }) => {
               About
             </button>
             <button 
-              onClick={() => { navigateTo('auth'); setMobileMenuOpen(false); }}
+              onClick={() => { navigateTo('Login'); setMobileMenuOpen(false); }}
               className="block w-full text-left px-3 py-2 text-emerald-600 font-medium hover:bg-emerald-50 rounded"
             >
               Login / Signup

@@ -2,32 +2,33 @@ import React, { useEffect } from 'react';
 import { cropDatabase } from '../Constants/Cropdata';
 
 const Result = ({ navigateTo, prediction, inputs, showToast }) => {
+  // Animate confidence bar on mount
   useEffect(() => {
-    // Animate progress bar after mount
+    if (!prediction || !inputs) {
+      navigateTo('predictor');
+      return;
+    }
+
     const timer = setTimeout(() => {
       const bar = document.getElementById('confidence-bar');
       if (bar) bar.style.width = `${prediction.confidence}%`;
     }, 300);
-    return () => clearTimeout(timer);
-  }, [prediction]);
 
-  if (!prediction || !inputs) {
-    navigateTo('predictor');
-    return null;
-  }
+    return () => clearTimeout(timer);
+  }, [prediction, inputs, navigateTo]);
+
+  if (!prediction || !inputs) return null;
 
   const downloadReport = () => {
     showToast('Report download started...');
-    setTimeout(() => {
-      showToast('Report downloaded successfully!');
-    }, 1500);
+    setTimeout(() => showToast('Report downloaded successfully!'), 1500);
   };
 
   const params = [
     { label: 'Nitrogen', value: inputs.nitrogen, unit: '', icon: 'n' },
     { label: 'Phosphorus', value: inputs.phosphorus, unit: '', icon: 'p' },
     { label: 'Potassium', value: inputs.potassium, unit: '', icon: 'k' },
-    { label: 'Temp', value: inputs.temperature, unit: '°C', icon: 'thermometer' },
+    { label: 'Temperature', value: inputs.temperature, unit: '°C', icon: 'thermometer' },
     { label: 'Humidity', value: inputs.humidity, unit: '%', icon: 'droplets' },
     { label: 'pH', value: inputs.ph, unit: '', icon: 'test-tube' },
     { label: 'Rainfall', value: inputs.rainfall, unit: 'mm', icon: 'cloud-rain' }
@@ -57,13 +58,13 @@ const Result = ({ navigateTo, prediction, inputs, showToast }) => {
           <div className="bg-linear-to-br from-emerald-600 to-teal-700 rounded-2xl p-8 md:p-12 text-white mb-8 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32"></div>
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full -ml-24 -mb-24"></div>
-            
+
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="flex-1">
                 <div className="text-emerald-100 text-sm font-semibold uppercase tracking-wider mb-2">Optimal Choice</div>
                 <h3 className="text-4xl md:text-6xl font-bold serif mb-4">{prediction.mainCrop}</h3>
                 <p className="text-emerald-50 text-lg mb-6 max-w-lg">{prediction.description}</p>
-                
+
                 <div className="flex items-center gap-4 mb-6">
                   <div className="bg-white/20 backdrop-blur px-4 py-2 rounded-full">
                     <span className="text-sm font-medium">Confidence Score</span>
@@ -79,7 +80,7 @@ const Result = ({ navigateTo, prediction, inputs, showToast }) => {
                   ></div>
                 </div>
               </div>
-              
+
               <div className="w-full md:w-auto flex justify-center">
                 <div className="w-48 h-48 rounded-2xl bg-white/20 backdrop-blur flex items-center justify-center border-2 border-white/30">
                   <i 
@@ -88,31 +89,6 @@ const Result = ({ navigateTo, prediction, inputs, showToast }) => {
                   ></i>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* Alternative Suggestions */}
-          <div className="mb-8">
-            <h4 className="text-lg font-semibold text-emerald-900 mb-4 flex items-center">
-              <i data-lucide="list-tree" className="w-5 h-5 mr-2 text-emerald-600"></i>
-              Alternative Suitable Crops
-            </h4>
-            <div className="grid md:grid-cols-3 gap-4">
-              {prediction.alternatives.map((alt, index) => (
-                <div key={index} className="glass rounded-xl p-6 border border-emerald-100 crop-card">
-                  <div className="flex items-center justify-between mb-3">
-                    <h5 className="font-bold text-emerald-900">{alt.name}</h5>
-                    <span className="text-sm font-semibold text-emerald-600">{alt.confidence}%</span>
-                  </div>
-                  <div className="w-full bg-emerald-100 rounded-full h-2 mb-3">
-                    <div 
-                      className="bg-emerald-400 h-2 rounded-full" 
-                      style={{width: `${alt.confidence}%`}}
-                    ></div>
-                  </div>
-                  <p className="text-xs text-slate-600">{alt.desc}</p>
-                </div>
-              ))}
             </div>
           </div>
 
@@ -128,24 +104,24 @@ const Result = ({ navigateTo, prediction, inputs, showToast }) => {
               ))}
             </div>
           </div>
-        </div>
 
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button 
-            onClick={() => navigateTo('predictor')} 
-            className="px-6 py-3 bg-white border-2 border-emerald-200 text-emerald-700 rounded-full font-semibold hover:bg-emerald-50 transition flex items-center justify-center"
-          >
-            <i data-lucide="refresh-cw" className="w-4 h-4 mr-2"></i>
-            Try Different Parameters
-          </button>
-          <button 
-            onClick={downloadReport}
-            className="px-6 py-3 bg-emerald-600 text-white rounded-full font-semibold hover:bg-emerald-700 transition shadow-lg shadow-emerald-600/30 flex items-center justify-center"
-          >
-            <i data-lucide="download" className="w-4 h-4 mr-2"></i>
-            Download Report (PDF)
-          </button>
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
+            <button 
+              onClick={() => navigateTo('predictor')} 
+              className="px-6 py-3 bg-white border-2 border-emerald-200 text-emerald-700 rounded-full font-semibold hover:bg-emerald-50 transition flex items-center justify-center"
+            >
+              <i data-lucide="refresh-cw" className="w-4 h-4 mr-2"></i>
+              Try Different Parameters
+            </button>
+            <button 
+              onClick={downloadReport}
+              className="px-6 py-3 bg-emerald-600 text-white rounded-full font-semibold hover:bg-emerald-700 transition shadow-lg shadow-emerald-600/30 flex items-center justify-center"
+            >
+              <i data-lucide="download" className="w-4 h-4 mr-2"></i>
+              Download Report (PDF)
+            </button>
+          </div>
         </div>
       </div>
     </section>
