@@ -109,7 +109,7 @@ const About = ({ navigateTo }) => {
         </div>
 
         {/* Fertilizer Guide */}
-        <div className="bg-linear-to-r from-emerald-800 to-teal-900 rounded-3xl p-8 md:p-12 text-white">
+        <div className="bg-linear-to-r from-emerald-800 to-teal-900 rounded-3xl p-8 md:p-12 text-black">
           <h3 className="text-2xl font-bold mb-6 flex items-center">
             <i data-lucide="shovel" className="w-6 h-6 mr-3"></i>
             Fertilizer Management Tips

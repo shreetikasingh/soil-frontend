@@ -15,11 +15,14 @@ const App = () => {
   const [toast, setToast] = useState({ show: false, message: '' });
 
   // Initialize Lucide icons on page change
-  useEffect(() => {
+// Initialize Lucide icons on page change
+  /* useEffect(() => {
     if (window.lucide) {
       window.lucide.createIcons();
     }
   }, [currentPage]);
+ */
+  
 
   const showToast = (message) => {
     setToast({ show: true, message });
