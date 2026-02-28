@@ -21,9 +21,6 @@ const Footer = ({ navigateTo }) => {
                 <button onClick={() => navigateTo('home')} className="hover:text-white transition">Home</button>
               </li>
               <li>
-                <button onClick={() => navigateTo('predictor')} className="hover:text-white transition">Get Recommendation</button>
-              </li>
-              <li>
                 <button onClick={() => navigateTo('about')} className="hover:text-white transition">About</button>
               </li>
             </ul>
@@ -35,13 +32,13 @@ const Footer = ({ navigateTo }) => {
                 <i data-lucide="mail" className="w-4 h-4 mr-2"></i> support@terragrow.ai
               </li>
               <li className="flex items-center">
-                <i data-lucide="phone" className="w-4 h-4 mr-2"></i> +1 (555) 123-4567
+                <i data-lucide="phone" className="w-4 h-4 mr-2"></i> +977 9822498284
               </li>
             </ul>
           </div>
         </div>
         <div className="border-t border-emerald-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-emerald-400">&copy; 2024 TerraGrow. All rights reserved.</p>
+          <p className="text-sm text-emerald-400">&copy; 2026 TerraGrow. All rights reserved.</p>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <a href="#" className="text-emerald-400 hover:text-white transition">
               <i data-lucide="twitter" className="w-5 h-5"></i>

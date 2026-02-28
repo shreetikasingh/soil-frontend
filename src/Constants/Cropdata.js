@@ -1,44 +1,92 @@
-// Crop database with icons and descriptions
+// Crop database with icons and descriptions (DATASET ALIGNED)
 export const cropDatabase = {
   Rice: {
     icon: "wheat",
-    desc: "Ideal for high rainfall and humid conditions with clay soil."
-  },
-  Wheat: {
-    icon: "wheat",
-    desc: "Suitable for moderate temperature and well-drained loamy soil."
+    desc: "Ideal for high rainfall, high humidity, and clayey soil."
   },
   Maize: {
     icon: "leaf",
-    desc: "Requires warm weather and fertile well-drained soil."
+    desc: "Requires warm climate and fertile, well-drained soil."
   },
-  Cotton: {
-    icon: "flower-2",
-    desc: "Best grown in black soil with warm temperature."
-  },
-  Sugarcane: {
-    icon: "trees",
-    desc: "Needs high temperature, humidity, and plenty of water."
-  },
-  Barley: {
-    icon: "wheat",
-    desc: "Grows well in cooler climates."
-  },
-  Millets: {
-    icon: "grain",
-    desc: "Drought resistant crop."
-  },
-  Pulses: {
+  Chickpea: {
     icon: "bean",
-    desc: "Improves soil fertility."
+    desc: "Grows well in cool, dry climates with low rainfall."
+  },
+  Kidneybeans: {
+    icon: "bean",
+    desc: "Needs moderate temperature and well-drained loamy soil."
+  },
+  Pigeonpeas: {
+    icon: "leaf",
+    desc: "Thrives in semi-arid regions and improves soil fertility."
+  },
+  Mothbeans: {
+    icon: "bean",
+    desc: "Drought-resistant crop suitable for arid regions."
+  },
+  Mungbean: {
+    icon: "bean",
+    desc: "Short-duration crop requiring warm climate."
+  },
+  Blackgram: {
+    icon: "bean",
+    desc: "Grows well in warm climate with moderate rainfall."
+  },
+  Lentil: {
+    icon: "grain",
+    desc: "Cool-season crop suitable for dry conditions."
+  },
+  Pomegranate: {
+    icon: "apple",
+    desc: "Thrives in semi-arid climate with well-drained soil."
+  },
+  Banana: {
+    icon: "banana",
+    desc: "Requires warm climate, high humidity, and rich soil."
+  },
+  Mango: {
+    icon: "trees",
+    desc: "Best grown in tropical climate with dry harvesting season."
+  },
+  Grapes: {
+    icon: "grape",
+    desc: "Requires warm climate and well-drained sandy soil."
+  },
+  Watermelon: {
+    icon: "droplet",
+    desc: "Needs warm temperature and sandy loam soil."
+  },
+  Muskmelon: {
+    icon: "droplet",
+    desc: "Grows best in warm climate with low humidity."
+  },
+  Apple: {
+    icon: "apple",
+    desc: "Requires cold climate and well-drained loamy soil."
+  },
+  Orange: {
+    icon: "citrus",
+    desc: "Thrives in subtropical climate with moderate rainfall."
+  },
+  Papaya: {
+    icon: "leaf",
+    desc: "Fast-growing crop needing warm temperature."
+  },
+  Coconut: {
+    icon: "trees",
+    desc: "Requires coastal climate with high humidity."
   },
   Coffee: {
     icon: "coffee",
-    desc: "Requires cool climate and altitude."
+    desc: "Needs cool climate, shade, and adequate rainfall."
   },
-  Tea: {
+  Cotton: {
+    icon: "flower-2",
+    desc: "Best grown in black soil with warm climate."
+  },
+  Jute: {
     icon: "leaf",
-    desc: "Needs acidic soil and rainfall."
+    desc: "Needs warm, humid climate and alluvial soil."
   }
 };
 

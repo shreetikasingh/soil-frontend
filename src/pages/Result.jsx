@@ -61,9 +61,9 @@ const Result = ({ navigateTo, prediction, inputs, showToast }) => {
 
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="flex-1">
-                <div className="text-emerald-100 text-sm font-semibold uppercase tracking-wider mb-2">Optimal Choice</div>
+                <div className="text-black -100 text-sm font-semibold uppercase tracking-wider mb-2">Optimal Choice</div>
                 <h3 className="text-4xl md:text-6xl font-bold serif mb-4">{prediction.mainCrop}</h3>
-                <p className="text-emerald-50 text-lg mb-6 max-w-lg">{prediction.description}</p>
+                <p className="text-black -50 text-lg mb-6 max-w-lg">{prediction.description}</p>
 
                 <div className="flex items-center gap-4 mb-6">
                   <div className="bg-white/20 backdrop-blur px-4 py-2 rounded-full">
@@ -116,7 +116,7 @@ const Result = ({ navigateTo, prediction, inputs, showToast }) => {
             </button>
             <button 
               onClick={downloadReport}
-              className="px-6 py-3 bg-emerald-600 text-white rounded-full font-semibold hover:bg-emerald-700 transition shadow-lg shadow-emerald-600/30 flex items-center justify-center"
+              className="px-6 py-3 bg-emerald-600 text-black rounded-full font-semibold hover:bg-emerald-700 transition shadow-lg shadow-emerald-600/30 flex items-center justify-center"
             >
               <i data-lucide="download" className="w-4 h-4 mr-2"></i>
               Download Report (PDF)

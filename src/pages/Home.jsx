@@ -19,21 +19,26 @@ const Home = ({ navigateTo }) => {
               <i data-lucide="leaf" className="w-4 h-4 mr-2"></i>
               AI-Powered Agriculture
             </div>
+
             <h1 className="text-5xl lg:text-7xl font-bold text-emerald-950 serif leading-tight mb-6">
               Cultivate Smarter,<br />
               <span className="text-emerald-600">Harvest Better</span>
             </h1>
+
             <p className="text-lg text-slate-600 mb-8 leading-relaxed max-w-lg">
               TerraGrow uses advanced machine learning to analyze your soil nutrients and environmental conditions, recommending the perfect crop for maximum yield and sustainability.
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4">
+              {/* ✅ ONLY CHANGE IS HERE */}
               <button 
-                onClick={() => navigateTo('predictor')} 
+                onClick={() => navigateTo('Login')} 
                 className="px-8 py-4 bg-emerald-600 text-white rounded-full font-semibold hover:bg-emerald-700 transition shadow-lg shadow-emerald-600/30 flex items-center justify-center group"
               >
                 Get Recommendation
                 <i data-lucide="arrow-right" className="w-5 h-5 ml-2 group-hover:translate-x-1 transition"></i>
               </button>
+
               <button 
                 onClick={() => navigateTo('about')} 
                 className="px-8 py-4 bg-white text-emerald-800 border-2 border-emerald-200 rounded-full font-semibold hover:bg-emerald-50 transition flex items-center justify-center"
@@ -58,6 +63,7 @@ const Home = ({ navigateTo }) => {
             </div>
           </div>
           
+          {/* 🔒 RIGHT IMAGE SECTION — COMPLETELY UNCHANGED */}
           <div className="hidden lg:block relative">
             <div className="absolute inset-0 bg-emerald-200 rounded-3xl transform rotate-3 opacity-20"></div>
             <img 
@@ -66,7 +72,6 @@ const Home = ({ navigateTo }) => {
               className="relative rounded-3xl shadow-2xl transform -rotate-2 hover:rotate-0 transition duration-500 w-full object-cover h-125"
             />
             
-            {/* Floating Stats Card */}
             <div className="absolute -bottom-6 -left-6 glass p-6 rounded-2xl shadow-xl max-w-xs slide-in" style={{animationDelay: '0.2s'}}>
               <div className="flex items-center space-x-3 mb-3">
                 <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
@@ -80,6 +85,7 @@ const Home = ({ navigateTo }) => {
               <div className="text-3xl font-bold text-emerald-600">+40%</div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
